@@ -84,6 +84,7 @@ html, body {
   overflow: hidden;
 }
 
+/* Página única del modo libro */
 .book-page {
   box-sizing: border-box;
   height: 100%;
@@ -95,26 +96,47 @@ html, body {
 }
 .book-page.is-turning { opacity: 0; }
 
-.book-page p { text-align: justify; hyphens: auto; margin: 0 0 1.1em; }
-.book-page .chapter-head { text-align: center; margin-bottom: 36px; }
-.book-page .chapter-head .part-label {
+/* Contenedor del modo continuo (scroll) */
+.book-scroll {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: clamp(20px, 4vh, 44px) clamp(18px, 6vw, 72px) 28vh;
+}
+
+/* Alternancia de modos */
+.reader-app[data-mode="book"] .book-scroll { display: none; }
+.reader-app[data-mode="book"] .zone { display: block; }
+.reader-app[data-mode="scroll"] #book-page,
+.reader-app[data-mode="scroll"] #book-measurer { display: none; }
+.reader-app[data-mode="scroll"] .zone { display: none; }
+
+/* Tipografía compartida por ambos modos */
+.book-page p, .book-scroll p { text-align: justify; hyphens: auto; margin: 0 0 1.1em; }
+.book-page .chapter-head, .book-scroll .chapter-head { text-align: center; margin-bottom: 36px; }
+.book-page .chapter-head .part-label, .book-scroll .chapter-head .part-label {
   letter-spacing: .25em;
   text-transform: uppercase;
   font-size: 12px;
   color: var(--accent-2);
 }
-.book-page .chapter-head h1 {
+.book-page .chapter-head h1, .book-scroll .chapter-head h1 {
   font-family: var(--font-display);
   font-size: clamp(26px, 6vw, 38px);
   margin: 6px 0 0;
 }
-.book-page .chapter-head .part-epigraph {
+.book-page .chapter-head .part-epigraph, .book-scroll .chapter-head .part-epigraph {
   margin-top: 14px;
   font-style: italic;
   color: var(--ink-soft);
   font-size: 15px;
 }
-.book-page .first-of-page::first-letter {
+.book-page .first-of-page::first-letter, .book-scroll .first-of-page::first-letter {
   font-family: var(--font-display);
   font-size: 3.1em;
   float: left;
@@ -123,13 +145,17 @@ html, body {
   color: var(--accent);
   font-weight: 600;
 }
-.book-page .scene-break {
+.book-page .scene-break, .book-scroll .scene-break {
   text-align: center;
   margin: 1.6em 0;
   color: var(--accent-2);
   font-size: 17px;
   letter-spacing: .5em;
 }
+.book-page em, .book-scroll em { color: var(--ink-soft); }
+
+.reader-error { text-align: center; margin-top: 20vh; color: var(--ink-soft); }
+.reader-error a { color: var(--accent); }
 
 .zone {
   position: absolute;
@@ -186,11 +212,12 @@ html, body {
 .toc-drawer li { border-top: 1px solid var(--line); }
 .toc-drawer li:first-child { border-top: none; }
 .toc-drawer .part-divider {
-  font-size: 11px;
+  font-family: var(--font-display);
+  font-size: 12px;
   letter-spacing: .15em;
   text-transform: uppercase;
   color: var(--accent-2);
-  padding: 14px 0 4px;
+  padding: 16px 0 4px;
 }
 .toc-drawer button {
   display: block;
@@ -217,8 +244,8 @@ html, body {
 }
 .toc-overlay.open { opacity: 1; pointer-events: auto; }
 
-/* Medidor invisible usado por JS para paginar; misma clase que .book-page,
-   pero con alto libre (para medir el flujo completo) y fuera de pantalla. */
+/* Medidor invisible usado por JS para paginar: misma clase que .book-page,
+   pero con alto libre (mide el flujo completo) y fuera de pantalla. */
 #book-measurer.book-page {
   position: absolute;
   visibility: hidden;
@@ -230,6 +257,7 @@ html, body {
 
 @media (max-width: 480px) {
   #reader-chapter-title { font-size: 13px; }
-  .reader-bar { padding-left: 8px; padding-right: 8px; }
+  .reader-bar { padding-left: 8px; padding-right: 8px; gap: 6px; }
+  .reader-bar-actions { gap: 3px; }
   .icon-btn { width: 34px; height: 34px; font-size: 13px; }
 }

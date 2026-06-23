@@ -7,21 +7,21 @@ Este repositorio está diseñado para que varios escritores trabajen en paralelo
 ```
 content/
   book.json                 # título, autor, subtítulo de la novela (rara vez cambia)
-  01-inicio/                # una carpeta por parte, numerada
-    part.json                # { "label": "Parte I · Inicio", "roman": "I" }
-    01-los-cuernos-de-consagracion.md
-    02-otro-capitulo.md
-  02-problema/
+  01-sal-y-aceite/          # una carpeta por movimiento, numerada
+    part.json                # { "label": "Sal y Aceite", "roman": "I" }
+    01-el-nombre-que-pesa.md
+    02-el-camino-de-los-olivos.md
+  02-la-marca/
     part.json
     01-....md
 ```
 
-- Las **partes** son carpetas con prefijo numérico (`01-`, `02-`...). El número decide el orden.
-- Los **capítulos** son archivos `.md` con prefijo numérico dentro de su parte.
+- Los **movimientos** son carpetas con prefijo numérico (`01-`, `02-`...). El número decide el orden. La etiqueta (`label`) es lírica, no mecánica: evita nombres como "Inicio" o "Desenlace".
+- Los **capítulos** son archivos `.md` con prefijo numérico dentro de su movimiento, cada uno con su propio título lírico.
 - Si un capítulo crece demasiado y varias personas quieren escribir escenas distintas dentro de él, conviértanlo en **carpeta**:
 
 ```
-03-desarrollo/
+03-el-filo-que-mira/
   02-el-asedio/
     meta.json              # { "title": "...", "epigraph": "...", "author": "..." }
     01-la-llegada.md

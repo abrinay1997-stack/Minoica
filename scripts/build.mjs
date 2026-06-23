@@ -167,7 +167,7 @@ function tocHTML() {
         <a href="${ch.slug}.html">
           <span class="toc-num">${ch.number}</span>
           <span class="toc-title">${ch.title}</span>
-          <span class="toc-sub">${ch.partLabel.split("·")[1]?.trim() || ch.partLabel}</span>
+          <span class="toc-sub">${ch.partLabel}</span>
         </a>
       </li>`
     )
@@ -223,7 +223,7 @@ for (const ch of flatChapters) {
 }
 
 // --- 5. reader.html: app del lector paginado ---
-const readerBody = `<div class="reader-app" id="reader-app">
+const readerBody = `<div class="reader-app" id="reader-app" data-mode="book">
   <header class="reader-bar">
     <button id="toc-toggle" class="icon-btn" aria-label="Índice">☰</button>
     <div class="reader-bar-title">
@@ -233,6 +233,7 @@ const readerBody = `<div class="reader-app" id="reader-app">
     <div class="reader-bar-actions">
       <button id="font-dec" class="icon-btn" aria-label="Reducir letra">A−</button>
       <button id="font-inc" class="icon-btn" aria-label="Aumentar letra">A+</button>
+      <button id="reader-mode-toggle" class="icon-btn" aria-label="Modo continuo" title="Cambiar a lectura continua">▤</button>
       <button id="reader-theme-toggle" class="icon-btn" aria-label="Modo noche">☾</button>
     </div>
   </header>
@@ -247,6 +248,7 @@ const readerBody = `<div class="reader-app" id="reader-app">
     <div class="zone zone-prev" id="zone-prev" aria-label="Página anterior"></div>
     <div class="book-page" id="book-page"></div>
     <div class="zone zone-next" id="zone-next" aria-label="Página siguiente"></div>
+    <div class="book-scroll" id="book-scroll"></div>
     <div class="book-page" id="book-measurer" aria-hidden="true"></div>
   </main>
 
