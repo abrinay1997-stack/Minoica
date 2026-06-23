@@ -168,7 +168,6 @@ function coverHTML() {
     <h1>${book.title}</h1>
     <p class="subtitle">${book.subtitle}</p>
     <p class="byline">Una novela de ${book.author}</p>
-    <p class="byline-tagline">${book.tagline}</p>
     <a class="cta-read" href="reader.html">Leer como libro →</a>
     <nav class="cover-nav">
       <a href="#sinopsis">Sinopsis</a>

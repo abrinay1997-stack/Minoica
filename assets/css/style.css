@@ -122,7 +122,7 @@ main.page {
   font-size: 72px;
   line-height: 1.1;
   margin: 0 auto 8px;
-  font-weight: 600;
+  font-weight: 700;
   max-width: 9em;
 }
 .cover .subtitle {
@@ -137,13 +137,7 @@ main.page {
   text-transform: uppercase;
   color: var(--accent);
   font-weight: 600;
-  margin: 0;
-}
-.cover .byline-tagline {
-  font-size: 13px;
-  letter-spacing: .08em;
-  color: var(--ink-soft);
-  margin: 4px 0 30px;
+  margin: 0 0 30px;
 }
 .cover .cta-read {
   display: inline-block;
