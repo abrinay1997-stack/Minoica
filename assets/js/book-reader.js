@@ -407,14 +407,23 @@
   }
 
   function initialPosition() {
+    var saved = null;
+    var raw = localStorage.getItem(POSITION_KEY);
+    if (raw) {
+      try { saved = JSON.parse(raw); } catch (e) {}
+    }
     var hash = location.hash.replace("#", "");
-    if (hash) return { index: indexOfSlug(hash), fraction: 0 };
-    var saved = localStorage.getItem(POSITION_KEY);
+    if (hash) {
+      // Si el hash apunta al mismo capítulo que la posición guardada,
+      // recuperamos también la página exacta donde quedó el lector.
+      if (saved && saved.slug === hash) {
+        return { index: indexOfSlug(hash), fraction: saved.fraction || 0 };
+      }
+      // Hash de un capítulo distinto (enlace directo): empezamos al inicio.
+      return { index: indexOfSlug(hash), fraction: 0 };
+    }
     if (saved) {
-      try {
-        var pos = JSON.parse(saved);
-        return { index: indexOfSlug(pos.slug), fraction: pos.fraction || 0 };
-      } catch (e) {}
+      return { index: indexOfSlug(saved.slug), fraction: saved.fraction || 0 };
     }
     return { index: 0, fraction: 0 };
   }
