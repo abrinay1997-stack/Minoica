@@ -74,4 +74,4 @@ npm run build   # genera dist/
 npm run serve   # genera y sirve dist/ en http://localhost:3000
 ```
 
-Abre `/reader.html` para el modo libro con paso de páginas, o `/index.html` para la portada y el índice clásico.
+Abre `/reader.html` para el lector (modo libro o continuo), o `/index.html` para el "objeto libro" completo: portada, epígrafe y dedicatoria, sinopsis, *dramatis personae*, nota de contenido, índice, nota histórica, glosario y colofón. Todo ese aparato se edita desde `content/book.json`, sin tocar HTML.

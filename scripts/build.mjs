@@ -160,6 +160,56 @@ ${body}
 `;
 }
 
+const ORNAMENT = `<div class="ornament">𐀒 𐀐 𐀒</div>`;
+
+function coverHTML() {
+  return `<section class="cover">
+    <div class="kicker">${book.kicker}</div>
+    <h1>${book.title}</h1>
+    <p class="subtitle">${book.subtitle}</p>
+    <p class="byline">Una novela de ${book.author}</p>
+    <p class="byline-tagline">${book.tagline}</p>
+    <a class="cta-read" href="reader.html">Leer como libro →</a>
+    <nav class="cover-nav">
+      <a href="#sinopsis">Sinopsis</a>
+      <a href="#personajes">Personajes</a>
+      <a href="#indice">Índice</a>
+      <a href="#nota-historica">Nota histórica</a>
+    </nav>
+  </section>`;
+}
+
+function frontispieceHTML() {
+  if (!book.epigraph && !book.dedication) return "";
+  return `<section class="frontispiece">
+    ${book.epigraph ? `<blockquote class="book-epigraph">${book.epigraph}</blockquote>` : ""}
+    ${book.dedication ? `<p class="dedication">${book.dedication}</p>` : ""}
+  </section>`;
+}
+
+function synopsisHTML() {
+  if (!book.synopsis || !book.synopsis.length) return "";
+  const paras = book.synopsis.map((p) => `    <p>${p}</p>`).join("\n");
+  return `<section class="matter synopsis" id="sinopsis">
+    <h2>Sinopsis</h2>
+${paras}
+    ${book.contentWarning ? `<p class="content-note">${book.contentWarning}</p>` : ""}
+  </section>`;
+}
+
+function dramatisHTML() {
+  if (!book.dramatisPersonae || !book.dramatisPersonae.length) return "";
+  const items = book.dramatisPersonae
+    .map((c) => `      <li><span class="dp-name">${c.name}</span><span class="dp-role">${c.role}</span></li>`)
+    .join("\n");
+  return `<section class="matter dramatis" id="personajes">
+    <h2>Dramatis Personae</h2>
+    <ul>
+${items}
+    </ul>
+  </section>`;
+}
+
 function tocHTML() {
   const items = flatChapters
     .map(
@@ -172,28 +222,62 @@ function tocHTML() {
       </li>`
     )
     .join("\n");
-  return `<main class="page">
-  <section class="cover">
-    <div class="kicker">${book.kicker}</div>
-    <h1>${book.title}</h1>
-    <p class="subtitle">${book.subtitle}</p>
-    <p class="byline">Una novela de ${book.author}</p>
-    <p class="byline-tagline">${book.tagline}</p>
-    <a class="cta-read" href="reader.html">Leer como libro →</a>
-  </section>
-
-  <div class="ornament">𐀒 𐀐 𐀒</div>
-
-  <section class="toc">
+  return `<section class="toc" id="indice">
     <h2>Índice</h2>
     <ol>
 ${items}
     </ol>
-  </section>
+  </section>`;
+}
+
+function historicalHTML() {
+  if (!book.historicalNote || !book.historicalNote.length) return "";
+  const paras = book.historicalNote.map((p) => `    <p>${p}</p>`).join("\n");
+  return `<section class="matter historical" id="nota-historica">
+    <h2>Nota histórica</h2>
+${paras}
+  </section>`;
+}
+
+function glossaryHTML() {
+  if (!book.glossary || !book.glossary.length) return "";
+  const items = book.glossary
+    .map((g) => `      <div class="glossary-item"><dt>${g.term}</dt><dd>${g.def}</dd></div>`)
+    .join("\n");
+  return `<section class="matter glossary" id="glosario">
+    <h2>Glosario</h2>
+    <dl>
+${items}
+    </dl>
+  </section>`;
+}
+
+function colophonHTML() {
+  return `<section class="matter colophon">
+    ${ORNAMENT}
+    <p class="colophon-title">${book.title}</p>
+    <p>© ${book.year || ""} ${book.author}. Obra de ficción.</p>
+    <p class="colophon-note">Inspirada libremente en la Creta minoica. Cualquier parecido entre la corte de Cnosos y cualquier corte viva queda a cuenta del lector.</p>
+  </section>`;
+}
+
+function homeHTML() {
+  return `<main class="page home">
+  ${coverHTML()}
+  ${frontispieceHTML()}
+  ${ORNAMENT}
+  ${synopsisHTML()}
+  ${dramatisHTML()}
+  ${ORNAMENT}
+  ${tocHTML()}
+  ${ORNAMENT}
+  ${historicalHTML()}
+  ${glossaryHTML()}
+  ${colophonHTML()}
 </main>`;
 }
 
-fs.writeFileSync(path.join(DIST_DIR, "index.html"), pageShell({ title: `${book.title} — ${book.author}`, body: tocHTML() }));
+fs.writeFileSync(path.join(DIST_DIR, "index.html"), pageShell({ title: `${book.title} — ${book.author}`, body: homeHTML() }));
 
 function chapterHTML(ch) {
   const navPrev = ch.prev ? `<a class="prev" href="${ch.prev}.html"><span class="label">Anterior</span>${flatChapters.find((c) => c.slug === ch.prev).title}</a>` : `<a class="prev" href="index.html"><span class="label">Índice</span>Volver al índice</a>`;

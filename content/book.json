@@ -3,5 +3,40 @@
   "author": "Abrinay",
   "subtitle": "Una historia de amor, traición y ceniza en la Creta de los toros",
   "tagline": "Antes de que el mar reclamara la isla",
-  "kicker": "Crónica Minoica"
+  "kicker": "Crónica Minoica",
+  "year": "2026",
+  "epigraph": "«Los hombres levantan laberintos para encerrar a sus monstruos; el mar, que es más viejo, no encierra: recuerda.»",
+  "dedication": "Para los que dicen las cosas en voz alta, aunque tiemblen las columnas.",
+  "synopsis": [
+    "En la Creta de los palacios sin murallas, donde se adora a los toros y a una diosa que pide sangre, un guerrero extranjero al que llaman Máximo sobrevive saltando sobre cuernos para deleite de una corte que lo admira y lo desprecia a partes iguales. Una mañana de fiesta ve, entre el polvo del ruedo, a Roxana: una campesina de Arhanes que dice todo lo que piensa en un palacio construido entero sobre el disimulo.",
+    "Pero el sumo pontífice Krato, amado por el pueblo como ningún rey lo fue jamás, ha aprendido que el poder no se hereda: se fabrica. Y ha decidido que esa muchacha de los olivos —marcada, dicen, por un sueño— es la pieza que le falta para volverse indispensable. Entre la intriga del templo, una guerra enviada como sentencia y un cielo que se enrojece sobre el horizonte del sur, Lisandro y Roxana descubrirán que ningún amor pesa tanto como los secretos que cada uno arrastra... y que el mar, paciente, lleva mucho más tiempo que ellos contando los días de la isla."
+  ],
+  "contentWarning": "Novela para lectores adultos. Contiene violencia bélica, sexo explícito y crueldad psicológica, siempre al servicio de la historia.",
+  "dramatisPersonae": [
+    { "name": "Lisandro, llamado Máximo", "role": "Soldado del norte, sin patria, saltador de toros del palacio. Sobrevive calculando; ha olvidado, a propósito, cómo llegó a la isla." },
+    { "name": "Roxana", "role": "Campesina de Arhanes, hija de un cultivador de olivos. Dice las cosas de frente. La corte la llama «marcada»." },
+    { "name": "Krato", "role": "Sumo pontífice de Cnosos. Necesita ser amado como otros necesitan respirar, y no perdona a quien lo es sin esfuerzo." },
+    { "name": "Fáidra", "role": "Sirvienta de mejillas pintadas. Lleva quince años sirviendo a dos amos a la vez." },
+    { "name": "Dexios", "role": "Escriba del pontífice. Aprendió que en Cnosos las preguntas son la forma más lenta del suicidio." },
+    { "name": "Theano", "role": "Anciana sacerdotisa. Conserva intacta la memoria de un palacio anterior al actual." },
+    { "name": "Néstor", "role": "El hombre del olivar que crió a Roxana al pie del Yuktas." },
+    { "name": "Asterión", "role": "El pontífice que hubo antes que Krato, muerto hace veinte años. Su sombra cubre toda la historia." }
+  ],
+  "historicalNote": [
+    "«El Laberinto de Sangre» es una obra de ficción inspirada en la civilización minoica que floreció en Creta durante la Edad del Bronce. Cnosos fue su palacio mayor: un complejo de patios, talleres y almacenes tan intrincado que los griegos posteriores lo recordarían como el laberinto del mito. Los minoicos apenas levantaron murallas; confiaban en el mar y en su flota.",
+    "Muchos elementos de la novela tienen raíz arqueológica: el salto del toro representado en sus frescos, el hacha doble o labrys como símbolo sagrado, los cuernos de consagración que coronaban los edificios, y la importancia del aceite, la púrpura y los santuarios de cumbre como el del monte Yuktas.",
+    "Hacia los siglos XVII y XVI antes de nuestra era, la cercana isla de Thera —hoy Santorini— sufrió una de las erupciones volcánicas más violentas de la historia humana. El cataclismo, con sus terremotos, su caída de ceniza y sus olas, contribuyó al declive de la talasocracia minoica. Esta novela imagina las vidas que el mar estaba a punto de borrar, ajenas a la cuenta que ya corría bajo sus pies."
+  ],
+  "glossary": [
+    { "term": "Cnosos", "def": "El mayor palacio minoico de Creta, centro político y religioso de la isla." },
+    { "term": "Labrys", "def": "Hacha de doble filo, símbolo sagrado de la diosa y del poder sacerdotal." },
+    { "term": "Cuernos de consagración", "def": "Emblema de piedra con forma de astas de toro que coronaba templos y palacios." },
+    { "term": "Salto del toro", "def": "Rito atlético (taurokathapsia) en el que el saltador agarra los cuernos y voltea sobre el lomo del animal." },
+    { "term": "Pontífice", "def": "Aquí, el sumo sacerdote de Cnosos, intermediario entre el pueblo y la diosa." },
+    { "term": "Arhanes", "def": "Población al sur de Cnosos, célebre por sus olivares; tierra de origen de Roxana." },
+    { "term": "Yuktas", "def": "Monte sagrado sobre Arhanes, sede de un santuario de cumbre." },
+    { "term": "Amnisos", "def": "Puerto que servía a Cnosos y abría la isla al mar." },
+    { "term": "Thera", "def": "Isla volcánica al norte de Creta, la actual Santorini; su erupción marca el horizonte de la historia." },
+    { "term": "Púrpura", "def": "Tinte costosísimo extraído de moluscos marinos, signo de lujo y de rango." }
+  ]
 }

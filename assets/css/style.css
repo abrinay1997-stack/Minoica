@@ -149,7 +149,110 @@ main.page {
 }
 .cover .cta-read:hover { background: var(--accent); color: var(--bg-paper); }
 
-.toc { margin-top: 40px; }
+.cover-nav {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 22px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: .04em;
+}
+.cover-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+.cover-nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.frontispiece { text-align: center; padding: 30px 0 10px; }
+.book-epigraph {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 28em;
+  margin: 0 auto;
+  border: none;
+}
+.dedication {
+  margin-top: 26px;
+  font-style: italic;
+  color: var(--accent-2);
+  font-size: 16px;
+}
+
+.matter { margin-top: 56px; scroll-margin-top: 80px; }
+.matter h2 {
+  font-family: var(--font-display);
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 26px;
+}
+.matter p { text-align: justify; hyphens: auto; }
+
+.synopsis { max-width: 38em; margin-left: auto; margin-right: auto; }
+.synopsis .content-note {
+  margin-top: 26px;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 3px;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-soft);
+  text-align: left;
+}
+
+.dramatis ul { list-style: none; padding: 0; margin: 0 auto; max-width: 40em; }
+.dramatis li { padding: 16px 0; border-top: 1px solid var(--line); }
+.dramatis li:last-child { border-bottom: 1px solid var(--line); }
+.dp-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 19px;
+  color: var(--accent);
+  margin-bottom: 3px;
+}
+.dp-role { display: block; font-size: 16px; color: var(--ink-soft); }
+
+.historical { max-width: 38em; margin-left: auto; margin-right: auto; }
+
+.glossary dl { max-width: 40em; margin: 0 auto; }
+.glossary-item { padding: 14px 0; border-top: 1px solid var(--line); }
+.glossary-item:last-child { border-bottom: 1px solid var(--line); }
+.glossary dt {
+  font-family: var(--font-display);
+  font-size: 17px;
+  color: var(--accent);
+  margin-bottom: 3px;
+}
+.glossary dd { margin: 0; font-size: 16px; color: var(--ink-soft); }
+
+.colophon { text-align: center; margin-top: 70px; }
+.colophon p { text-align: center; }
+.colophon-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.colophon-note {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: 30em;
+  margin: 10px auto 0;
+}
+
+.toc { margin-top: 40px; scroll-margin-top: 80px; }
 .toc h2 {
   font-family: var(--font-display);
   text-align: center;
