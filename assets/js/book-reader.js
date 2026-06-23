@@ -5,13 +5,15 @@
 
   var book = null;
   var flatChapters = [];
-  var state = { chapterIndex: 0, page: 0, totalPages: 1, pageStep: 0, viewportWidth: 0, gap: 64 };
+  var pagesCache = {}; // chapterIndex -> [pageHtml, ...]
+  var state = { chapterIndex: 0, pageIndex: 0 };
 
   var el = {};
 
   function cacheEls() {
     el.viewport = document.getElementById("book-viewport");
-    el.content = document.getElementById("book-content");
+    el.page = document.getElementById("book-page");
+    el.measurer = document.getElementById("book-measurer");
     el.zonePrev = document.getElementById("zone-prev");
     el.zoneNext = document.getElementById("zone-next");
     el.pagePrev = document.getElementById("page-prev");
@@ -32,7 +34,7 @@
     flatChapters = [];
     book.parts.forEach(function (part) {
       part.chapters.forEach(function (ch) {
-        flatChapters.push({ slug: ch.slug, title: ch.title, epigraph: ch.epigraph, html: ch.html, partLabel: part.label });
+        flatChapters.push({ slug: ch.slug, title: ch.title, epigraph: ch.epigraph, blocks: ch.blocks, partLabel: part.label });
       });
     });
   }
@@ -68,10 +70,12 @@
 
   function openToc() {
     el.tocDrawer.classList.add("open");
+    el.tocDrawer.setAttribute("aria-hidden", "false");
     el.tocOverlay.classList.add("open");
   }
   function closeToc() {
     el.tocDrawer.classList.remove("open");
+    el.tocDrawer.setAttribute("aria-hidden", "true");
     el.tocOverlay.classList.remove("open");
   }
 
@@ -81,73 +85,130 @@
     if (el.themeToggle) el.themeToggle.textContent = theme === "night" ? "☀" : "☾";
   }
 
+  function getFontScale() {
+    return parseFloat(localStorage.getItem(FONT_KEY)) || 1;
+  }
+
   function applyFontScale(scale) {
-    el.content.style.fontSize = scale + "em";
+    document.documentElement.style.setProperty("--reader-font-scale", scale);
+    el.page.style.fontSize = scale + "em";
+    el.measurer.style.fontSize = scale + "em";
     localStorage.setItem(FONT_KEY, String(scale));
   }
 
-  function getFontScale() {
-    return parseFloat(el.content.style.fontSize) || parseFloat(localStorage.getItem(FONT_KEY)) || 1;
-  }
-
-  function renderChapter(index) {
-    var ch = flatChapters[index];
-    el.content.innerHTML =
-      '<div class="chapter-head"><div class="part-label">' + ch.partLabel + '</div><h1>' + ch.title + "</h1>" +
+  // --- Construcción de bloques (cabecera del capítulo + párrafos) ---
+  function headBlockHTML(ch) {
+    return (
+      '<div class="chapter-head"><div class="part-label">' + ch.partLabel + "</div><h1>" + ch.title + "</h1>" +
       (ch.epigraph ? '<p class="part-epigraph">' + ch.epigraph + "</p>" : "") +
-      "</div><article>" + ch.html + "</article>";
-    el.chapterTitle.textContent = ch.title;
-    el.partLabel.textContent = ch.partLabel;
+      "</div>"
+    );
   }
 
-  function measurePagination() {
-    var rect = el.viewport.getBoundingClientRect();
-    state.viewportWidth = rect.width;
-    state.gap = parseFloat(getComputedStyle(el.content).columnGap) || 64;
-    el.content.style.columnWidth = state.viewportWidth + "px";
-    state.pageStep = state.viewportWidth + state.gap;
-    // Forzar reflow antes de medir
-    var scrollWidth = el.content.scrollWidth;
-    state.totalPages = Math.max(1, Math.round((scrollWidth + state.gap) / state.pageStep));
+  function getAllBlocks(index) {
+    var ch = flatChapters[index];
+    if (!ch._allBlocks) {
+      var blocks = [headBlockHTML(ch)];
+      ch.blocks.forEach(function (block, i) {
+        if (i === 0 && block.indexOf("<p>") === 0) {
+          block = block.replace("<p>", '<p class="first-of-page">');
+        }
+        blocks.push(block);
+      });
+      ch._allBlocks = blocks;
+    }
+    return ch._allBlocks;
   }
 
-  function updateTransform() {
-    el.content.style.transform = "translateX(-" + state.page * state.pageStep + "px)";
-    el.progress.textContent = "Página " + (state.page + 1) + " de " + state.totalPages;
+  // --- Paginación manual: reparte bloques de bloque en bloque hasta que
+  //     dejan de caber en la altura visible de la página. ---
+  function paginateBlocks(blocks) {
+    el.measurer.style.width = el.page.clientWidth + "px";
+    var pageHeight = el.page.clientHeight;
+    var pages = [];
+    var current = [];
+
+    for (var i = 0; i < blocks.length; i++) {
+      current.push(blocks[i]);
+      el.measurer.innerHTML = current.join("");
+      if (el.measurer.scrollHeight > pageHeight) {
+        if (current.length === 1) {
+          pages.push(current.join(""));
+          current = [];
+        } else {
+          var overflow = current.pop();
+          pages.push(current.join(""));
+          current = [overflow];
+        }
+      }
+    }
+    if (current.length) pages.push(current.join(""));
+    return pages.length ? pages : [""];
+  }
+
+  function getPagesForChapter(index) {
+    if (!pagesCache[index]) {
+      pagesCache[index] = paginateBlocks(getAllBlocks(index));
+    }
+    return pagesCache[index];
+  }
+
+  function invalidatePagination() {
+    pagesCache = {};
+  }
+
+  function showPageContent(html) {
+    el.page.classList.add("is-turning");
+    setTimeout(function () {
+      el.page.innerHTML = html;
+      requestAnimationFrame(function () {
+        el.page.classList.remove("is-turning");
+      });
+    }, 140);
   }
 
   function savePosition() {
-    localStorage.setItem(POSITION_KEY, JSON.stringify({ slug: flatChapters[state.chapterIndex].slug, page: state.page }));
+    localStorage.setItem(POSITION_KEY, JSON.stringify({ slug: flatChapters[state.chapterIndex].slug, page: state.pageIndex }));
     history.replaceState(null, "", "#" + flatChapters[state.chapterIndex].slug);
+  }
+
+  function renderCurrentPage(skipAnimation) {
+    var pages = getPagesForChapter(state.chapterIndex);
+    state.pageIndex = Math.max(0, Math.min(state.pageIndex, pages.length - 1));
+    var ch = flatChapters[state.chapterIndex];
+    el.chapterTitle.textContent = ch.title;
+    el.partLabel.textContent = ch.partLabel;
+    el.progress.textContent = "Página " + (state.pageIndex + 1) + " de " + pages.length;
+    if (skipAnimation) {
+      el.page.innerHTML = pages[state.pageIndex];
+    } else {
+      showPageContent(pages[state.pageIndex]);
+    }
+    savePosition();
   }
 
   function goToChapter(index, page) {
     if (index < 0 || index >= flatChapters.length) return;
     state.chapterIndex = index;
-    renderChapter(index);
-    requestAnimationFrame(function () {
-      measurePagination();
-      state.page = page === "last" ? state.totalPages - 1 : Math.min(page, state.totalPages - 1);
-      updateTransform();
-      savePosition();
-    });
+    var pages = getPagesForChapter(index);
+    state.pageIndex = page === "last" ? pages.length - 1 : page || 0;
+    renderCurrentPage(false);
   }
 
   function goNext() {
-    if (state.page + 1 < state.totalPages) {
-      state.page++;
-      updateTransform();
-      savePosition();
+    var pages = getPagesForChapter(state.chapterIndex);
+    if (state.pageIndex + 1 < pages.length) {
+      state.pageIndex++;
+      renderCurrentPage(false);
     } else if (state.chapterIndex + 1 < flatChapters.length) {
       goToChapter(state.chapterIndex + 1, 0);
     }
   }
 
   function goPrev() {
-    if (state.page > 0) {
-      state.page--;
-      updateTransform();
-      savePosition();
+    if (state.pageIndex > 0) {
+      state.pageIndex--;
+      renderCurrentPage(false);
     } else if (state.chapterIndex > 0) {
       goToChapter(state.chapterIndex - 1, "last");
     }
@@ -158,7 +219,7 @@
     el.viewport.addEventListener("touchstart", function (e) {
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
-    });
+    }, { passive: true });
     el.viewport.addEventListener("touchend", function (e) {
       if (startX === null) return;
       var dx = e.changedTouches[0].clientX - startX;
@@ -169,7 +230,16 @@
       }
       startX = null;
       startY = null;
-    });
+    }, { passive: true });
+  }
+
+  function reflow(preserveFraction) {
+    var pagesBefore = getPagesForChapter(state.chapterIndex);
+    var fraction = pagesBefore.length > 1 ? state.pageIndex / (pagesBefore.length - 1) : 0;
+    invalidatePagination();
+    var pagesAfter = getPagesForChapter(state.chapterIndex);
+    state.pageIndex = preserveFraction ? Math.round(fraction * (pagesAfter.length - 1)) : 0;
+    renderCurrentPage(true);
   }
 
   function initEvents() {
@@ -195,33 +265,33 @@
     });
 
     el.fontInc.addEventListener("click", function () {
-      var scale = Math.min(1.6, getFontScale() + 0.1);
-      applyFontScale(scale);
-      goToChapter(state.chapterIndex, state.page);
+      applyFontScale(Math.min(1.5, getFontScale() + 0.1));
+      reflow(true);
     });
     el.fontDec.addEventListener("click", function () {
-      var scale = Math.max(0.7, getFontScale() - 0.1);
-      applyFontScale(scale);
-      goToChapter(state.chapterIndex, state.page);
+      applyFontScale(Math.max(0.75, getFontScale() - 0.1));
+      reflow(true);
     });
 
     var resizeTimer;
     window.addEventListener("resize", function () {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(function () {
-        var fraction = state.totalPages > 1 ? state.page / (state.totalPages - 1) : 0;
-        measurePagination();
-        state.page = Math.round(fraction * (state.totalPages - 1)) || 0;
-        updateTransform();
-      }, 150);
+        reflow(true);
+      }, 200);
     });
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () {
+        reflow(true);
+      });
+    }
   }
 
   function initialChapterAndPage() {
     var hash = location.hash.replace("#", "");
     if (hash) {
-      var idx = indexOfSlug(hash);
-      return { index: idx, page: 0 };
+      return { index: indexOfSlug(hash), page: 0 };
     }
     var saved = localStorage.getItem(POSITION_KEY);
     if (saved) {
@@ -236,8 +306,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     cacheEls();
     applyTheme(localStorage.getItem(THEME_KEY) || "day");
-    var savedScale = localStorage.getItem(FONT_KEY);
-    if (savedScale) el.content.style.fontSize = savedScale + "em";
+    applyFontScale(getFontScale());
 
     fetch("data/book.json")
       .then(function (res) { return res.json(); })

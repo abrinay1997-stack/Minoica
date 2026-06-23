@@ -42,9 +42,12 @@ function parseFrontmatter(raw) {
 }
 
 // --- Markdown mínimo: párrafos, *cursiva*, *** como corte de escena ---
-function renderMarkdown(body) {
-  const blocks = body.trim().split(/\r?\n\s*\r?\n/);
-  return blocks
+// Devuelve un arreglo de bloques HTML (uno por párrafo o corte de escena),
+// para que el lector paginado pueda medirlos y repartirlos en páginas.
+function renderMarkdownBlocks(body) {
+  return body
+    .trim()
+    .split(/\r?\n\s*\r?\n/)
     .map((block) => {
       const trimmed = block.trim();
       if (trimmed === "***") return '<div class="scene-break">⁘</div>';
@@ -54,27 +57,26 @@ function renderMarkdown(body) {
         .replace(/>/g, "&gt;")
         .replace(/\*(.+?)\*/g, "<em>$1</em>");
       return `<p>${escaped}</p>`;
-    })
-    .join("\n");
+    });
 }
 
 function readChapterFile(filePath) {
   const raw = fs.readFileSync(filePath, "utf8");
   const { meta, body } = parseFrontmatter(raw);
-  return { meta, html: renderMarkdown(body) };
+  return { meta, blocks: renderMarkdownBlocks(body) };
 }
 
 function readChapterDir(dirPath) {
   const meta = readJSON(path.join(dirPath, "meta.json"));
   const scenes = listNumbered(dirPath).filter((e) => e.name.endsWith(".md"));
-  const html = scenes
-    .map((scene) => {
-      const raw = fs.readFileSync(path.join(dirPath, scene.name), "utf8");
-      const { body } = parseFrontmatter(raw);
-      return renderMarkdown(body);
-    })
-    .join('\n<div class="scene-break">⁘</div>\n');
-  return { meta, html };
+  let blocks = [];
+  scenes.forEach((scene, i) => {
+    const raw = fs.readFileSync(path.join(dirPath, scene.name), "utf8");
+    const { body } = parseFrontmatter(raw);
+    if (i > 0) blocks.push('<div class="scene-break">⁘</div>');
+    blocks = blocks.concat(renderMarkdownBlocks(body));
+  });
+  return { meta, blocks };
 }
 
 function slugify(name) {
@@ -95,15 +97,15 @@ for (const partEntry of listNumbered(CONTENT_DIR)) {
     if (chEntry.name === "part.json") continue;
     const fullPath = path.join(partDir, chEntry.name);
     const slug = slugify(chEntry.name);
-    let meta, html;
+    let meta, blocks;
     if (chEntry.isDirectory()) {
-      ({ meta, html } = readChapterDir(fullPath));
+      ({ meta, blocks } = readChapterDir(fullPath));
     } else if (chEntry.name.endsWith(".md")) {
-      ({ meta, html } = readChapterFile(fullPath));
+      ({ meta, blocks } = readChapterFile(fullPath));
     } else {
       continue;
     }
-    chapters.push({ slug, title: meta.title, epigraph: meta.epigraph || null, author: meta.author || book.author, html });
+    chapters.push({ slug, title: meta.title, epigraph: meta.epigraph || null, author: meta.author || book.author, blocks });
   }
 
   parts.push({ id: partEntry.name.replace(NUMBERED, "$2"), label: partMeta.label, roman: partMeta.roman, chapters });
@@ -204,7 +206,7 @@ function chapterHTML(ch) {
   </div>
 
   <article>
-${ch.html}
+${ch.blocks.join("\n")}
   </article>
 
   <p class="reader-link"><a href="reader.html#${ch.slug}">Leer este capítulo en modo libro →</a></p>
@@ -243,8 +245,9 @@ const readerBody = `<div class="reader-app" id="reader-app">
 
   <main class="book-viewport" id="book-viewport">
     <div class="zone zone-prev" id="zone-prev" aria-label="Página anterior"></div>
-    <div class="book-content" id="book-content"></div>
+    <div class="book-page" id="book-page"></div>
     <div class="zone zone-next" id="zone-next" aria-label="Página siguiente"></div>
+    <div class="book-page" id="book-measurer" aria-hidden="true"></div>
   </main>
 
   <footer class="reader-footer">
@@ -261,7 +264,7 @@ fs.writeFileSync(
 <head>
 <meta charset="utf-8">
 <title>Leer — ${book.title}</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:wght@500;600;700&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">

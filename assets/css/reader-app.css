@@ -1,92 +1,145 @@
-html, body { height: 100%; overflow: hidden; }
+html, body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
+}
 .progress-bar { display: none; }
 
 .reader-app {
   position: fixed;
   inset: 0;
+  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   background: var(--bg);
   color: var(--ink);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 .reader-bar {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 16px;
+  gap: 8px;
+  padding: max(10px, env(safe-area-inset-top)) 12px 10px;
   border-bottom: 1px solid var(--line);
   background: var(--bg-paper);
   flex: 0 0 auto;
 }
 .reader-bar-title {
   flex: 1;
+  min-width: 0;
   text-align: center;
   overflow: hidden;
 }
 #reader-chapter-title {
   display: block;
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 15px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 #reader-part-label {
   display: block;
-  font-size: 11px;
-  letter-spacing: .15em;
+  font-size: 10px;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--accent-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.reader-bar-actions { display: flex; gap: 6px; }
+.reader-bar-actions { display: flex; gap: 4px; flex: 0 0 auto; }
 
 .icon-btn {
   font-family: var(--font-serif);
   background: none;
   border: 1px solid var(--line);
   color: var(--ink);
-  padding: 6px 10px;
-  border-radius: 4px;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
   line-height: 1;
+  flex: 0 0 auto;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
-.icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+.icon-btn:active { border-color: var(--accent); color: var(--accent); }
+@media (hover: hover) {
+  .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+}
 
 .book-viewport {
   position: relative;
   flex: 1 1 auto;
+  min-height: 0;
   overflow: hidden;
-  padding: 36px clamp(20px, 6vw, 80px);
 }
 
-.book-content {
+.book-page {
+  box-sizing: border-box;
   height: 100%;
-  column-gap: 64px;
-  will-change: transform;
-  transition: transform .35s cubic-bezier(.4,0,.2,1);
-  font-size: 1em;
+  width: 100%;
+  overflow: hidden;
+  padding: clamp(20px, 4vh, 44px) clamp(18px, 6vw, 72px);
+  opacity: 1;
+  transition: opacity .18s ease;
 }
-.book-content .chapter-head { break-after: avoid; }
-.book-content p { text-align: justify; hyphens: auto; }
-.book-content article p:first-of-type::first-letter {
+.book-page.is-turning { opacity: 0; }
+
+.book-page p { text-align: justify; hyphens: auto; margin: 0 0 1.1em; }
+.book-page .chapter-head { text-align: center; margin-bottom: 36px; }
+.book-page .chapter-head .part-label {
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--accent-2);
+}
+.book-page .chapter-head h1 {
   font-family: var(--font-display);
-  font-size: 3.2em;
+  font-size: clamp(26px, 6vw, 38px);
+  margin: 6px 0 0;
+}
+.book-page .chapter-head .part-epigraph {
+  margin-top: 14px;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+.book-page .first-of-page::first-letter {
+  font-family: var(--font-display);
+  font-size: 3.1em;
   float: left;
   line-height: .8;
   padding-right: 8px;
   color: var(--accent);
   font-weight: 600;
 }
+.book-page .scene-break {
+  text-align: center;
+  margin: 1.6em 0;
+  color: var(--accent-2);
+  font-size: 17px;
+  letter-spacing: .5em;
+}
 
 .zone {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 18%;
+  width: 22%;
   z-index: 2;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 .zone-prev { left: 0; }
 .zone-next { right: 0; }
@@ -96,13 +149,13 @@ html, body { height: 100%; overflow: hidden; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  padding: 10px 16px;
+  gap: 18px;
+  padding: 8px 16px max(8px, env(safe-area-inset-bottom));
   border-top: 1px solid var(--line);
   background: var(--bg-paper);
-  font-size: 13px;
+  font-size: 12px;
   color: var(--ink-soft);
-  letter-spacing: .05em;
+  letter-spacing: .04em;
 }
 
 .toc-drawer {
@@ -110,12 +163,13 @@ html, body { height: 100%; overflow: hidden; }
   top: 0;
   bottom: 0;
   left: 0;
-  width: min(320px, 84vw);
+  width: min(320px, 86vw);
   background: var(--bg-paper);
   border-right: 1px solid var(--line);
   z-index: 30;
-  padding: 24px 20px;
+  padding: max(20px, env(safe-area-inset-top)) 20px 20px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   transform: translateX(-100%);
   transition: transform .3s ease;
 }
@@ -147,10 +201,10 @@ html, body { height: 100%; overflow: hidden; }
   color: var(--ink);
   font-family: var(--font-serif);
   font-size: 15px;
-  padding: 10px 0;
+  padding: 12px 0;
   cursor: pointer;
 }
-.toc-drawer button:hover, .toc-drawer button.active { color: var(--accent); }
+.toc-drawer button:active, .toc-drawer button.active { color: var(--accent); }
 
 .toc-overlay {
   position: fixed;
@@ -163,7 +217,19 @@ html, body { height: 100%; overflow: hidden; }
 }
 .toc-overlay.open { opacity: 1; pointer-events: auto; }
 
-@media (max-width: 600px) {
-  .book-viewport { padding: 24px 16px; }
-  .book-content { column-gap: 32px; }
+/* Medidor invisible usado por JS para paginar; misma clase que .book-page,
+   pero con alto libre (para medir el flujo completo) y fuera de pantalla. */
+#book-measurer.book-page {
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+  top: 0;
+  left: -9999px;
+  height: auto;
+}
+
+@media (max-width: 480px) {
+  #reader-chapter-title { font-size: 13px; }
+  .reader-bar { padding-left: 8px; padding-right: 8px; }
+  .icon-btn { width: 34px; height: 34px; font-size: 13px; }
 }
