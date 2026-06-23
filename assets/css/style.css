@@ -58,6 +58,7 @@ body {
   text-decoration: none;
 }
 
+.header-actions { display: flex; align-items: center; }
 .header-actions button {
   font-family: var(--font-serif);
   background: none;
@@ -110,25 +111,45 @@ main.page {
   font-family: var(--font-display);
   font-size: 58px;
   line-height: 1.1;
-  margin: 0 0 8px;
+  margin: 0 auto 8px;
   font-weight: 600;
+  max-width: 9em;
 }
 .cover .subtitle {
   font-style: italic;
   color: var(--ink-soft);
   font-size: 20px;
-  margin-bottom: 28px;
+  margin-bottom: 14px;
 }
 .cover .byline {
-  font-size: 14px;
-  letter-spacing: .15em;
+  font-size: 15px;
+  letter-spacing: .12em;
   text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 0;
+}
+.cover .byline-tagline {
+  font-size: 13px;
+  letter-spacing: .08em;
   color: var(--ink-soft);
+  margin: 4px 0 30px;
 }
+.cover .cta-read {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 12px 28px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  font-family: var(--font-display);
+  letter-spacing: .06em;
+  border-radius: 3px;
+  transition: background .2s, color .2s;
+}
+.cover .cta-read:hover { background: var(--accent); color: var(--bg-paper); }
 
-.toc {
-  margin-top: 40px;
-}
+.toc { margin-top: 40px; }
 .toc h2 {
   font-family: var(--font-display);
   text-align: center;
@@ -138,17 +159,8 @@ main.page {
   color: var(--accent);
   margin-bottom: 30px;
 }
-.toc ol {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  counter-reset: part;
-}
-.toc li {
-  counter-increment: part;
-  border-top: 1px solid var(--line);
-  padding: 20px 0;
-}
+.toc ol { list-style: none; padding: 0; margin: 0; }
+.toc li { border-top: 1px solid var(--line); padding: 20px 0; }
 .toc li:last-child { border-bottom: 1px solid var(--line); }
 .toc a {
   display: flex;
@@ -164,32 +176,17 @@ main.page {
   font-size: 15px;
   margin-right: 16px;
 }
-.toc-title {
-  font-family: var(--font-display);
-  font-size: 22px;
-  flex: 1;
-}
-.toc-sub {
-  font-style: italic;
-  font-size: 14px;
-  color: var(--ink-soft);
-}
+.toc-title { font-family: var(--font-display); font-size: 22px; flex: 1; }
+.toc-sub { font-style: italic; font-size: 14px; color: var(--ink-soft); }
 
-.chapter-head {
-  text-align: center;
-  margin-bottom: 50px;
-}
+.chapter-head { text-align: center; margin-bottom: 50px; }
 .chapter-head .part-label {
   letter-spacing: .3em;
   text-transform: uppercase;
   font-size: 13px;
   color: var(--accent-2);
 }
-.chapter-head h1 {
-  font-family: var(--font-display);
-  font-size: 42px;
-  margin: 6px 0 0;
-}
+.chapter-head h1 { font-family: var(--font-display); font-size: 42px; margin: 6px 0 0; }
 .chapter-head .part-epigraph {
   margin-top: 18px;
   font-style: italic;
@@ -197,11 +194,7 @@ main.page {
   font-size: 16px;
 }
 
-article p {
-  margin: 0 0 1.3em;
-  text-align: justify;
-  hyphens: auto;
-}
+article p { margin: 0 0 1.3em; text-align: justify; hyphens: auto; }
 article p:first-of-type::first-letter {
   font-family: var(--font-display);
   font-size: 3.6em;
@@ -221,20 +214,25 @@ article em { color: var(--ink-soft); }
   letter-spacing: .5em;
 }
 
+.reader-link { text-align: center; margin-top: 50px; }
+.reader-link a {
+  color: var(--accent);
+  text-decoration: none;
+  font-family: var(--font-display);
+  letter-spacing: .04em;
+  border-bottom: 1px solid var(--accent);
+}
+
 .chapter-nav {
   display: flex;
   justify-content: space-between;
-  margin-top: 70px;
+  margin-top: 30px;
   padding-top: 24px;
   border-top: 1px solid var(--line);
   font-family: var(--font-display);
   font-size: 15px;
 }
-.chapter-nav a {
-  color: var(--ink);
-  text-decoration: none;
-  max-width: 45%;
-}
+.chapter-nav a { color: var(--ink); text-decoration: none; max-width: 45%; }
 .chapter-nav a:hover { color: var(--accent); }
 .chapter-nav .label {
   display: block;

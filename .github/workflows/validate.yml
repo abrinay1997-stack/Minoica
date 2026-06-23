@@ -1,0 +1,23 @@
+name: Validate book build
+
+on:
+  pull_request:
+    paths:
+      - "content/**"
+      - "assets/**"
+      - "scripts/**"
+
+jobs:
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build book (sanity check)
+        run: node scripts/build.mjs
