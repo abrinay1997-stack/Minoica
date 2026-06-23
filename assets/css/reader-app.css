@@ -208,6 +208,17 @@ html, body {
   color: var(--accent);
   margin: 0 0 18px;
 }
+.toc-home-link {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 15px;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding: 0 0 16px;
+  margin-bottom: 6px;
+}
+.toc-home-link:active { color: var(--accent); }
 .toc-drawer ol { list-style: none; margin: 0; padding: 0; }
 .toc-drawer li { border-top: 1px solid var(--line); }
 .toc-drawer li:first-child { border-top: none; }

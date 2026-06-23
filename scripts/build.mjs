@@ -324,6 +324,7 @@ const readerBody = `<div class="reader-app" id="reader-app" data-mode="book">
 
   <nav class="toc-drawer" id="toc-drawer" aria-hidden="true">
     <h2>Índice</h2>
+    <a class="toc-home-link" href="index.html">⌂ Volver a portada</a>
     <ol id="toc-drawer-list"></ol>
   </nav>
   <div class="toc-overlay" id="toc-overlay"></div>
