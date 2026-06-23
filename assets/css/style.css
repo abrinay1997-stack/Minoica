@@ -27,6 +27,7 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-serif);
@@ -98,7 +99,16 @@ main.page {
 
 .cover {
   text-align: center;
-  padding: 90px 0 50px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px 50px;
 }
 .cover .kicker {
   letter-spacing: .35em;
@@ -109,7 +119,7 @@ main.page {
 }
 .cover h1 {
   font-family: var(--font-display);
-  font-size: 58px;
+  font-size: 72px;
   line-height: 1.1;
   margin: 0 auto 8px;
   font-weight: 600;
@@ -356,7 +366,8 @@ footer.site-footer {
 }
 
 @media (max-width: 600px) {
-  .cover h1 { font-size: 38px; }
+  .cover { min-height: calc(100vh - 50px); }
+  .cover h1 { font-size: 46px; }
   body { font-size: 17px; }
   main.page { padding: 40px 18px 90px; }
 }
