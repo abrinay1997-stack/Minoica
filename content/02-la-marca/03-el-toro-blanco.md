@@ -28,7 +28,7 @@ Krato no cambió la expresión, pero algo detrás de sus ojos se cerró como una
 
 ***
 
-Quedaba, sin embargo, un cabo suelto, y Krato no dejaba cabos sueltos desde hacía dieciséis años por la misma razón por la que un escorpión no deja la cola fuera de la piedra. Aquella misma noche hizo llamar a la mujer que había asistido el parto en el olivar, una comadrona vieja de Arhanes a la que Néstor había pagado en su momento para que olvidara lo que sus propias manos habían tocado.
+Quedaba, sin embargo, un cabo suelto, y Krato no dejaba cabos sueltos desde hacía dieciséis años por la misma razón por la que un escorpión no deja la cola fuera de la piedra. Aquella misma noche hizo llamar a la mujer que había asistido el parto en el olivar, una comadrona vieja de Arhanes a la que Néstor —ya entonces hombre de confianza de Asterión, el único a quien el pontífice se había atrevido a confiar el escondite de su hija— había pagado en su momento para que olvidara lo que sus propias manos habían tocado.
 
 La recibió él mismo, sin testigos salvo Dexios, en la cámara baja donde se guardaban las herramientas de los sacrificios menores. Fue amable al principio —Krato sabía ser amable con la precisión de un cirujano que sabe exactamente dónde va a cortar después— y le preguntó por el parto, por el llanto de la niña, por si recordaba alguna marca en el cuerpo, alguna señal que confirmara o desmintiera lo que ya sospechaba. La mujer, aterrada, juró que no recordaba nada, que había olvidado todo hacía años, que por favor, Eminencia, ella nunca diría una palabra.
 
