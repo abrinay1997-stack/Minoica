@@ -12,7 +12,11 @@ La segunda verdad era la de la niña. No la habían sacado de ningún palacio: e
 
 Krato escuchó las dos verdades sin que un solo músculo de su rostro se moviera. Cuando Dexios terminó, el pontífice se quedó largo rato mirando la tablilla del sueño, que había hecho traer y desempolvar, como quien contempla una deuda que creía saldada y descubre que solo había acumulado intereses.
 
-—El toro blanco que entra al mar y no regresa —repitió, paladeando la frase—. Asterión creyó que la Diosa le anunciaba una desgracia. Pobre hombre. Murió sin entender que los dioses no anuncian: piden. —Alzó la vista—. Sabes lo que dirán los sacerdotes viejos si se enteran de quién es esta muchacha antes que yo.
+—El toro blanco que entra al mar y no regresa —repitió, paladeando la frase—. Asterión creyó que la Diosa le anunciaba una desgracia. Pobre hombre. Murió sin entender que los dioses no anuncian: piden.
+
+Se quedó un momento en silencio, y cuando volvió a hablar lo hizo con la lentitud del que recita algo aprendido antes de saber andar.
+
+—¿Conoces el cuento viejo, Dexios? Más viejo que esta labrys y que todas las que la precedieron. Dicen que hace generaciones el mar le regaló a un rey de esta isla un toro blanco, perfecto, salido de la espuma, con la condición de que se lo devolviera en sacrificio. Y que el rey lo encontró tan hermoso que no tuvo estómago para degollarlo: ofreció otro animal en su lugar, uno cualquiera, y se quedó con el blanco para presumirlo. Desde entonces los abuelos juran que cada desgracia que ha caído sobre Creta —la peste, el temblor, el grano podrido en el silo— es el mar cobrándose, con intereses, aquel toro que nunca le dieron. —Pasó un dedo por las marcas de la tablilla, casi con cariño—. El pueblo mama ese miedo desde la cuna, Dexios. Lo lleva en la sangre sin saber siquiera de dónde le viene. Y yo voy a hacer lo único que ningún rey de esta isla se atrevió a hacer: voy a darles, por fin, el toro blanco que creen que le deben al mar. ¿Quién va a discutirle al pontífice que devuelve, por todos, la ofrenda que la isla entera lleva siglos debiendo? —Alzó la vista—. Sabes lo que dirán los sacerdotes viejos si se enteran de quién es esta muchacha antes que yo.
 
 —Dirán que es la heredera, Eminencia. Que la Diosa la devolvió. Y se agruparán en torno a ella como las moscas en torno al higo abierto.
 

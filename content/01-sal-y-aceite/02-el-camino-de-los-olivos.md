@@ -12,9 +12,17 @@ Roxana subió por el camino de los olivos con dos ánforas de aceite nuevo balan
 
 Fáidra le hacía preguntas mientras caminaban, y Roxana, que no sabía aún que en el palacio una pregunta amable puede ser la primera vuelta de un nudo corredizo, respondía a todas con la franqueza de Arhanes.
 
+—¿Y tu padre? ¿Vende él el aceite, o lo vendes tú?
+
+—Lo vende él, pero deja que lo lleve yo a la fiesta. —Roxana sonrió—. Es un hombre raro, mi padre. Tacaño con todo menos con una cosa: hay un viejo mendigo que aparece entre nuestros olivos los días de mercado, callado, sin pedir nada, y él nunca deja de apartarle su jarra del aceite bueno. Una vez le pregunté por qué a ese y no a los demás. Me dijo que aquel viejo le había salvado la vida hacía mucho, en otra parte, y que hay deudas que uno no termina de pagar nunca. No quiso contarme más, y cuando mi padre no quiere contar algo es como hablarle a una piedra.
+
+Fáidra no dijo nada, pero apretó un poco el paso, como si la palabra «deuda» le hubiera recordado de pronto hacia dónde estaba llevando a aquella muchacha.
+
 —¿Y tu madre? ¿Vive?
 
 —Murió cuando yo era niña. Mi padre dice que soñaba mucho. Que cuando yo era muy pequeña soñó con un toro blanco que entraba al mar y no volvía a salir, y que despertó llorando sin saber si de miedo o de alegría.
+
+Lo que no le dijo a Fáidra —porque no había encontrado nunca las palabras, ni siquiera a solas— fue que aquel toro blanco había dejado de ser, hacía mucho, el sueño de una madre muerta para volverse, de algún modo torcido, suyo. Había crecido con esa imagen dentro como otros crecen con un nombre: el animal pálido entrando despacio en el agua oscura, tan tranquilo que daba más miedo que si forcejeara, y no volviendo a salir nunca. A veces lo soñaba ella también, y despertaba con la certeza absurda y tozuda de que el toro la estaba esperando, paciente, en alguna orilla que ella todavía no había pisado. Su padre le decía que los sueños heredados no son profecías, sino la única manera que les queda a los muertos de seguir hablándonos. Ella quería creerle. Casi siempre lo conseguía.
 
 Algo pasó por la cara de Fáidra entonces —apenas un pliegue, la sombra de un cálculo—, pero había algo más debajo de ese cálculo, algo que la propia Fáidra no se permitió nombrar: la franqueza de esa muchacha, esa manera de entregar la verdad entera sin que nadie la pidiera, le recordaba a alguien que ella misma había sido quince años atrás, antes de aprender que en Cnosos la sinceridad se vende o se paga. Borró el gesto tan rápido que Roxana lo tomó por un gesto contra el sol.
 
