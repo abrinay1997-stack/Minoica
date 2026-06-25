@@ -16,7 +16,7 @@ Fáidra le hacía preguntas mientras caminaban, y Roxana, que no sabía aún que
 
 —Murió cuando yo era niña. Mi padre dice que soñaba mucho. Que cuando yo era muy pequeña soñó con un toro blanco que entraba al mar y no volvía a salir, y que despertó llorando sin saber si de miedo o de alegría.
 
-Algo pasó por la cara de Fáidra entonces —apenas un pliegue, la sombra de un cálculo—, pero la sirvienta lo borró tan rápido que Roxana lo tomó por un gesto contra el sol.
+Algo pasó por la cara de Fáidra entonces —apenas un pliegue, la sombra de un cálculo—, pero había algo más debajo de ese cálculo, algo que la propia Fáidra no se permitió nombrar: la franqueza de esa muchacha, esa manera de entregar la verdad entera sin que nadie la pidiera, le recordaba a alguien que ella misma había sido quince años atrás, antes de aprender que en Cnosos la sinceridad se vende o se paga. Borró el gesto tan rápido que Roxana lo tomó por un gesto contra el sol.
 
 —Bonito sueño —dijo Fáidra, y no volvió a sonreír en todo el camino.
 
