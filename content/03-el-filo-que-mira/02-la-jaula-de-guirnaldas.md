@@ -8,11 +8,11 @@ Mientras Lisandro sangraba en Citera, Roxana descubrió que la admiración de pa
 
 La verdad se la dio un anciano. Theano había servido en el templo desde antes de que Krato fuera Krato, y conservaba, bajo la sumisión que la edad y el miedo le habían impuesto, la memoria intacta de un palacio anterior al actual. Buscó a Roxana una tarde, cuando la doncella dormía, y le tomó las manos con una devoción que erizaba la piel.
 
-—Déjame verte a la luz, niña. —Le giró el rostro hacia la lámpara y se le llenaron los ojos de agua—. Diosa misericordiosa. Tienes sus manos. Tienes su frente. Llevo veinte años esperando equivocarme y acabo de dejar de hacerlo.
+—Déjame verte a la luz, niña. —Le giró el rostro hacia la lámpara y se le llenaron los ojos de agua—. Diosa misericordiosa. Tienes sus manos. Tienes su frente. Llevo dieciséis años esperando equivocarme y acabo de dejar de hacerlo.
 
 —¿Las manos de quién? —Roxana sintió el frío antes de entender las palabras—. Habla claro, anciano. En Arhanes hablamos claro.
 
-—No eres de Arhanes. —Theano bajó la voz hasta el hilo—. Eres la hija de Asterión, el pontífice que hubo antes que este. Te sacaron envuelta en lino para que ninguna mano te encontrara, y te criaron entre olivos para que ningún sacerdote te reconociera. Tu sueño del toro blanco no es de tu madre, niña. Es de tu padre. Lo soñó él, tres noches seguidas, antes de la noche en que todos dieron por muerto al pontífice.
+—No eres de Arhanes. —Theano bajó la voz hasta el hilo—. Eres la hija de Asterión, el pontífice que hubo antes que este, y de una mujer de Arhanes a la que él amó sin que el consejo se lo permitiera nunca. Te escondieron entre olivos desde antes de que aprendieras a caminar, para que ninguna mano te encontrara y ningún sacerdote te reconociera. Tu sueño del toro blanco no es de tu madre, niña. Es de tu padre. Lo soñó él, tres noches seguidas, antes de la noche en que todos dieron por muerto al pontífice.
 
 —¿Dieron por muerto? —Roxana se aferró a la frase como quien se aferra a una grieta en un muro liso—. ¿No murió, entonces?
 

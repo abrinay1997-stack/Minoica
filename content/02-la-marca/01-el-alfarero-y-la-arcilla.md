@@ -4,7 +4,7 @@ epigraph: «El que ama a todos por igual no ama a nadie: gobierna.»
 author: Abrinay
 ---
 
-Krato observaba a Roxana desde la sombra del pórtico con la misma atención clínica con que un alfarero observa la arcilla antes de decidir qué forma merece. No era deseo, o no solamente. Era reconocimiento. Había algo en aquella muchacha de Arhanes —el modo en que la multitud se volvía hacia ella sin saber por qué, el modo en que hasta los sirvientes más curtidos suavizaban la voz al dirigirse a ella— que él conocía bien, porque era la misma materia de la que él mismo estaba hecho: el don terrible de ser amado sin esfuerzo. Y Krato, que había pasado veinte años fabricándose ese don a fuerza de gestos calculados y silencios oportunos, no perdonaba con facilidad a quien lo poseía de nacimiento.
+Krato observaba a Roxana desde la sombra del pórtico con la misma atención clínica con que un alfarero observa la arcilla antes de decidir qué forma merece. No era deseo, o no solamente. Era reconocimiento. Había algo en aquella muchacha de Arhanes —el modo en que la multitud se volvía hacia ella sin saber por qué, el modo en que hasta los sirvientes más curtidos suavizaban la voz al dirigirse a ella— que él conocía bien, porque era la misma materia de la que él mismo estaba hecho: el don terrible de ser amado sin esfuerzo. Y Krato, que había pasado dieciséis años fabricándose ese don a fuerza de gestos calculados y silencios oportunos, no perdonaba con facilidad a quien lo poseía de nacimiento.
 
 Pero había algo más, y era ese algo más lo que le había robado el sueño desde que Fáidra le susurró al oído, durante la danza, las cuatro palabras que llevaba quince años pagándole por traer: *tiene los ojos de él.*
 
@@ -14,7 +14,7 @@ Pero había algo más, y era ese algo más lo que le había robado el sueño des
 
 Krato tardó en responder. Cuando lo hizo, su voz tenía la dulzura con que se habla de los muertos queridos.
 
-—Si fuera verdad, entonces la Diosa, en su infinita ironía, me habría devuelto a la puerta de casa lo único que pasé toda una vida asegurándome de que no volviera. —Se permitió una sonrisa sin alegría—. Hace veinte años enterramos una sangre, Dexios. Con honores, con incienso, con un pueblo entero llorando lo que yo le dije que llorara. Sería una pena que esa sangre hubiera aprendido a caminar y a vender aceite.
+—Si fuera verdad, entonces la Diosa, en su infinita ironía, me habría devuelto a la puerta de casa lo único que pasé toda una vida asegurándome de que no volviera. —Se permitió una sonrisa sin alegría—. Hace dieciséis años enterramos una sangre, Dexios. Con honores, con incienso, con un pueblo entero llorando lo que yo le dije que llorara. Sería una pena que esa sangre hubiera aprendido a caminar y a vender aceite.
 
 El escriba, que llevaba suficientes años al servicio del pontífice como para saber que esa frase era a la vez una confesión y una sentencia, inclinó la cabeza y no preguntó de quién era la sangre que habían enterrado. Había aprendido que las preguntas, en Cnosos, eran la forma más lenta del suicidio.
 
