@@ -6,7 +6,7 @@ author: Abrinay
 
 Después de la danza del toro, cuando los sirvientes ya recogían las guirnaldas pisoteadas y los sacerdotes menores limpiaban la sangre rociada sobre las losas con cubos de agua de mar, Lisandro la encontró —o ella lo encontró, eso discutirían más tarde, durante años, sin llegar nunca a un acuerdo— junto a las ánforas de aceite que nadie había venido a recoger.
 
-—Si vendes ese aceite con la misma cara con que mirabas el ruedo, los administradores te van a pagar el triple solo por la actuación —dijo él, secándose el sudor del cuello con un trapo que había visto mejores días.
+—Si vendes ese aceite con la misma cara con que mirabas el ruedo, los administradores te van a pagar el triple solo por la actuación —dijo él, secándose el sudor del cuello con un trapo viejo, gastado de tantos lavados.
 
 —No estaba actuando. Estaba calculando cuántos huesos te vas a romper antes de que se te acabe la suerte.
 
