@@ -22,7 +22,7 @@ La verdad se la dio un anciano. Theano había servido en el templo desde antes d
 
 Theano tardó en responder, y no fue por duda, sino por miedo; pero ya había llegado demasiado lejos para callarse ahora.
 
-—A tu padre lo atacaron en la oscuridad de un pasillo, dormido, con un cuchillo que pagó alguien que no quiso mancharse las manos. Lo enterramos con honores, con incienso, con un pueblo entero llorando lo que le ordenaron llorar. Y el hombre que ordenó aquella muerte se sentó después en su silla, y lleva dieciséis años calentándola como si fuera suya. —Le apretó las manos una última vez—. Eso es lo único que necesitas saber, niña: que quien fue capaz de matar a un pontífice para ocupar su lugar es capaz de cualquier cosa con tal de conservarlo.
+—A tu padre lo atacaron en la oscuridad de un pasillo, con un cuchillo que pagó alguien que no quiso mancharse las manos. Lo enterramos con honores, con incienso, con un pueblo entero llorando lo que le ordenaron llorar. Y el hombre que ordenó aquella muerte se sentó después en su silla, y lleva dieciséis años calentándola como si fuera suya. —Le apretó las manos una última vez—. Eso es lo único que necesitas saber, niña: que quien fue capaz de matar a un pontífice para ocupar su lugar es capaz de cualquier cosa con tal de conservarlo.
 
 Roxana no lloró. Eso fue lo que más asustó a Theano: que la muchacha se quedara muy quieta, como se queda quieta la liebre que acaba de oír al halcón, y que cuando habló, su voz fuera más firme que antes.
 
